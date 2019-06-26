@@ -1,11 +1,8 @@
-
-
-
 import React from 'react';
 
 const NewsList = () => {
     return (
-        <p>Footer</p>
+        <p>NewsList</p>
     );
 };
 
