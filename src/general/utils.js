@@ -70,7 +70,7 @@ const sectionClasses = [];
 const getSectionClassName = (sectionId) => {
     let className = ""; 
     let filteredSection = sectionClasses.filter((el, ix) => {
-        return el.id == sectionId;
+        return el.id === sectionId;
     })[0]; 
 
     if(filteredSection) {

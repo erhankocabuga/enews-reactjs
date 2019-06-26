@@ -1,8 +1,8 @@
-import { AppSettings } from '../general/utils';
+import AppSettings from '../general/settings';
 
 const helpers = {
-    getCategoryNewsEndpoint = (pageNo) => {
-        const ApiUrl = AppSettings.ApiUrl;
+    getCategoryNewsEndpoint(pageNo) {
+        const apiUrl = AppSettings.ApiUrl;
         const pathName = "search";
         const params = "api-key=" + AppSettings.ApiKey +
                        "&show-blocks=body" +
@@ -13,7 +13,7 @@ const helpers = {
         return `${apiUrl}/${pathName}?${params.toString()}`;
       },
     
-      getNewsDetailEndpoint = (contentUrl) => {
+      getNewsDetailEndpoint(contentUrl) { 
         const apiUrl = AppSettings.ApiUrl; 
         const params = "api-key=" + AppSettings.ApiKey +
                        "&show-blocks=all" +
@@ -22,18 +22,18 @@ const helpers = {
         return `${apiUrl}/${contentUrl}?${params.toString()}`;
       },
     
-      getCategoryNews = (pageNo) => {
+      getCategoryNews(pageNo) {  
         const url = this.getCategoryNewsEndpoint(pageNo);
         if(AppSettings.IsDevelopment) {
-          console.log("İstek:", url);
+          console.log("İstek url:", url);
         }
         return fetch(url);
       },
     
-      getNewsDetail = (contentUrl) => {
+      getNewsDetail(contentUrl) { 
         const url = this.getNewsDetailEndpoint(contentUrl);
         if(AppSettings.IsDevelopment) {
-          console.log("İstek:", url);
+          console.log("İstek url:", url);
         }
         return fetch(url);
       }
