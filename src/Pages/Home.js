@@ -4,7 +4,7 @@ import Utils from '../general/utils';
 import NewsService from '../services/NewsService';
 
 import Header from '../components/shared/Header';
-import Footer from '../components/shared/Footer'; 
+// import Footer from '../components/shared/Footer'; 
 import NewsList from '../components/NewsList';
 
 import NewsListTemplate1 from '../components/NewsListTemplate1';
@@ -59,16 +59,21 @@ export default class Home extends Component {
     }
 
     render() {
-        const newsTop = (this.state.newsList || []).slice(0, 2);
-        const list = (this.state.newsList || []).slice(2, 14);
-        
+        const list1 = (this.state.newsList || []).slice(0, 2);
+        const list2 = (this.state.newsList || []).slice(2, 14); 
+        const list3 = (this.state.newsList || []).slice(14); 
+ 
         return (
             <div>
-                <Header/>
-                {/* <NewsListTemplate1 News={newsTop} />
-                <NewsListTemplate2 News={list} /> */}
+                <Header/> 
+                <div className="section">
+                    <div className="container">
+                        <NewsListTemplate1 News={list1} />
+                        <NewsListTemplate2 News={list2} />
+                    </div>
+                </div> 
 
-                <NewsList/> 
+                <NewsList News={list3} /> 
             </div>
         );
     }

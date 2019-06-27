@@ -122,9 +122,16 @@ const getCategories = () => {
     return categories;
 };
 
+const formatDate = date => { 
+    const tempDate = new Date(date).toDateString().split(' ');
+    const formattedDate = `${tempDate[1]} ${+tempDate[2]}, ${+tempDate[3]}`;
+    return formattedDate;  
+};
+
 export default {
     mapApiResponseToNewsForList,
     mapApiResponseToNewsSingle,
     getSectionClassName,
-    getCategories
+    getCategories,
+    formatDate
 };
