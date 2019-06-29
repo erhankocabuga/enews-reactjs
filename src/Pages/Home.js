@@ -13,9 +13,33 @@ export default class Home extends Component {
         this.state = {
             newsList: []
         };
+
+        this.loadMore = this.loadMore.bind(this);
     };
 
-    getNews() {
+    loadMore(pageNo) { 
+        this.getNews(pageNo);
+    }
+
+    getNews(pageNo) {
+        NewsService
+            .getCategoryNews(pageNo)
+            .then((response) => response.json())
+            .then((data) => {
+
+                let news = Utils.mapApiResponseToNewsForList(data);
+                this.setState({
+                    newsList: [
+                        ...this.state.newsList,
+                        ...news
+                    ]
+                }); 
+            })
+            .catch((error) => console.log("Hata:" + error)); 
+    }
+
+    getHomeNews() {
+        // İlk sayfa haberlerini çeker
         NewsService
             .getCategoryNews(1)
             .then((response) => response.json())
@@ -29,26 +53,29 @@ export default class Home extends Component {
                     ]
                 }); 
             })
-            .catch((error) => console.log("Hata:" + error));
+            .then(() => {
 
-        NewsService
-            .getCategoryNews(2)
-            .then((response) => response.json())
-            .then((data) => {
-
-                let news = Utils.mapApiResponseToNewsForList(data);
-                this.setState({
-                    newsList: [
-                        ...this.state.newsList,
-                        ...news
-                    ]
-                }); 
+                // İkinci sayfa haberlerini de çekerek listeye ekler
+                NewsService
+                    .getCategoryNews(2)
+                    .then((response) => response.json())
+                    .then((data) => {
+        
+                        let news = Utils.mapApiResponseToNewsForList(data);
+                        this.setState({
+                            newsList: [
+                                ...this.state.newsList,
+                                ...news
+                            ]
+                        }); 
+                    })
+                    .catch((error) => console.log("Hata:" + error));
             })
-            .catch((error) => console.log("Hata:" + error));
+            .catch((error) => console.log("Hata:" + error)); 
     }
 
     componentDidMount() {
-        this.getNews();
+        this.getHomeNews(); 
     }
 
     render() {
@@ -65,7 +92,7 @@ export default class Home extends Component {
                     </div>
                 </div> 
 
-                <NewsList News={list3} /> 
+                <NewsList News={list3} LoadMoreAction={this.loadMore} CurrentPage={2} /> 
             </Fragment>
         );
     }

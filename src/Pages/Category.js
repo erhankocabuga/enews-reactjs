@@ -47,7 +47,7 @@ export default class Category extends Component {
  
         return (
             <Fragment>
-                <NewsList News={list} Type="Wide" LoadMoreAction={this.loadMore} /> 
+                <NewsList News={list} Type="Wide" LoadMoreAction={this.loadMore} CurrentPage={1} /> 
             </Fragment>
         );
     }

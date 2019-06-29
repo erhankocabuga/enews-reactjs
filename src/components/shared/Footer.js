@@ -1,6 +1,8 @@
 import React, { Component, Fragment } from 'react';
 import Utils from '../../general/utils';
 
+import { Link } from 'react-router-dom';
+
 class Footer extends Component {
     constructor(props) {
         super(props);
@@ -49,8 +51,13 @@ class Footer extends Component {
                 <div className="row">
                     <div className="col-md-5">
                         <div className="footer-widget">
-                            <div className="footer-logo">
-                                <a href="index.html" className="logo"><img src="./assets/img/logo.png" alt="" /></a>
+                            <div className="footer-logo"> 
+                                <Link to="/" className="logo"><img src={require('../../enews-react.png')} /></Link>
+                                <p style={{paddingTop: 20}}>
+                                    Powered by <a href="https://reactjs.org/" target="_blank">ReactJS</a> <br />
+                                    Developer: <a href="https://erhankocabuga.com" target="_blank">Erhan KOCABUGA</a> <br/>
+                                    News Source: <a href="https://open-platform.theguardian.com" target="_blank">The Guardian Api</a>
+                                </p>
                             </div>
                             <ul className="footer-nav">
                                 <li><a href="#">Privacy Policy</a></li>
@@ -70,9 +77,9 @@ class Footer extends Component {
                                 <div className="footer-widget">
                                     <h3 className="footer-title">About Us</h3>
                                     <ul className="footer-links">
-                                        <li><a href="about.html">About Us</a></li>
+                                        <li><a href="#">About Us</a></li>
                                         <li><a href="#">Join Us</a></li>
-                                        <li><a href="contact.html">Contacts</a></li>
+                                        <li><a href="#">Contacts</a></li>
                                     </ul>
                                 </div>
                             </div>

@@ -1,10 +1,10 @@
 import React from 'react'; 
 import Utils from '../../general/utils';
 
-import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom'; 
 
 const Header = () =>  {
-    const navbarCategories = (Utils.getCategories() || []).slice(0, 4);
+    const navbarCategories = (Utils.getCategories() || []).slice(0, 6);
 
     return (  
 		<header id="header"> 
@@ -12,7 +12,7 @@ const Header = () =>  {
             <div id="nav-fixed">
                 <div className="container"> 
                     <div className="nav-logo"> 
-                        <Link to="/" className="logo">ENEWS</Link>
+                        <Link to="/" className="logo"><img src={require('../../enews-react.png')} style={{"height": "50px", "width": "auto"}} /></Link>
                     </div> 
  
                     <ul className="nav-menu nav navbar-nav"> 
@@ -55,6 +55,16 @@ const Header = () =>  {
                         <li><a href="#"><i className="fa fa-pinterest"></i></a></li>
                     </ul>
                 </div> 
+                <div className="section-row">
+                    <div className="nav-logo"> 
+                        <Link to="/" className="logo"><img src={require('../../enews-react.png')} /></Link>
+                        <p style={{paddingTop: 20}}>
+                            Powered by <a href="https://reactjs.org/" target="_blank">ReactJS</a> <br />
+                            Developer: <a href="https://erhankocabuga.com" target="_blank">Erhan KOCABUGA</a><br />
+                            News Source: <a href="https://open-platform.theguardian.com" target="_blank">The Guardian Api</a>
+                         </p>
+                    </div>
+                </div>
             </div>
         </div> 
     </header> 

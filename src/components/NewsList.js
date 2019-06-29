@@ -6,7 +6,7 @@ class NewsList extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            pageNo: 1
+            pageNo: this.props.CurrentPage
         };
     }
 
