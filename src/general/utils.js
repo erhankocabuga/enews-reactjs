@@ -122,6 +122,11 @@ const getCategories = () => {
     return categories;
 };
 
+const validateEmail = email => {
+    var reg = new RegExp(/\S+@\S+\.\S+/);
+    return reg.test(email);
+};
+
 const formatDate = date => { 
     const tempDate = new Date(date).toDateString().split(' ');
     const formattedDate = `${tempDate[1]} ${+tempDate[2]}, ${+tempDate[3]}`;
@@ -133,5 +138,6 @@ export default {
     mapApiResponseToNewsSingle,
     getSectionClassName,
     getCategories,
+    validateEmail,
     formatDate
 };

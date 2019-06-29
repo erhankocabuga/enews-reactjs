@@ -1,13 +1,13 @@
 import AppSettings from '../general/settings';
 
 const helpers = {
-    getCategoryNewsEndpoint(pageNo) {
+    getCategoryNewsEndpoint(pageNo, customSection) { 
         const apiUrl = AppSettings.ApiUrl;
         const pathName = "search";
         const params = "api-key=" + AppSettings.ApiKey +
                        "&show-blocks=body" +
                        "&show-fields=thumbnail" +
-                       "&section=world|science|technology|football|business|games|environment|culture" +
+                       (customSection ? ("&section=" + customSection) : ("&section=world|science|technology|football|business|games|environment|culture")) +
                        "&page=" + pageNo.toString(); 
     
         return `${apiUrl}/${pathName}?${params.toString()}`;
@@ -24,6 +24,14 @@ const helpers = {
     
       getCategoryNews(pageNo) {  
         const url = this.getCategoryNewsEndpoint(pageNo);
+        if(AppSettings.IsDevelopment) {
+          console.log("İstek url:", url);
+        }
+        return fetch(url);
+      },
+
+      getCategoryNewsSpecific(pageNo, customSection) {  
+        const url = this.getCategoryNewsEndpoint(pageNo, customSection);
         if(AppSettings.IsDevelopment) {
           console.log("İstek url:", url);
         }

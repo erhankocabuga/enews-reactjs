@@ -990,3 +990,12 @@ RESPONSIVE
          display:none;
     }
 }
+input.error {
+    border: 1px solid red; 
+}
+input.success {
+    border: 1px solid green; 
+}
+input:focus, input:focus{
+    outline: none!important;
+}

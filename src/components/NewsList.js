@@ -2,7 +2,20 @@ import React, {Component} from 'react';
 import Utils from '../general/utils';
 import Sidebar from '../components/shared/Sidebar';
 
-class NewsList extends Component {  
+class NewsList extends Component { 
+    constructor(props) {
+        super(props);
+        this.state = {
+            pageNo: 1
+        };
+    }
+
+    loadMoreProcess = () => { 
+        let pageNo = this.state.pageNo + 1;
+        this.setState({ pageNo: pageNo }); 
+        return this.props.LoadMoreAction(pageNo);
+    }
+
     render() {
         const list = this.props.News; 
 
@@ -11,7 +24,9 @@ class NewsList extends Component {
                 <div className="section">
                     <div className="container">
                         <div className="row">
-                            <div className="col-md-8">
+
+
+                            <div className={ 'col-md-' + (this.props.Type === 'Wide' ? '12' : '8') }>
                                 <div className="row"> 
                                     { 
                                         list.map((item, ix) => {
@@ -35,17 +50,22 @@ class NewsList extends Component {
                                                     </div>
                                                 );
                                             })
-                                    } 
+                                    }  
                                     <div className="col-md-12">
                                         <div className="section-row">
-                                            <button className="primary-button center-block">Load More</button>
+                                            <button className="primary-button center-block" onClick={()=> this.loadMoreProcess() }>Load More</button>
                                         </div>
-                                    </div> 
+                                    </div>   
                                 </div>
-                            </div>
-                            <div className="col-md-4">
-                                <Sidebar />
-                            </div>
+                            </div> 
+                            {
+                                this.props.Type === 'Wide' ? null :
+                                (
+                                    <div className="col-md-4">
+                                        <Sidebar />
+                                    </div>
+                                )
+                            }
                         </div>
                     </div>
                 </div>

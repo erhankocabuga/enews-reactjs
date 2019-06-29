@@ -1,12 +1,9 @@
-import React, {Component} from 'react';
+import React, {Component, Fragment} from 'react';
 
 import Utils from '../general/utils';
-import NewsService from '../services/NewsService';
+import NewsService from '../services/NewsService'; 
 
-import Header from '../components/shared/Header';
-// import Footer from '../components/shared/Footer'; 
-import NewsList from '../components/NewsList';
-
+import NewsList from '../components/NewsList'; 
 import NewsListTemplate1 from '../components/NewsListTemplate1';
 import NewsListTemplate2 from '../components/NewsListTemplate2';
 
@@ -30,9 +27,7 @@ export default class Home extends Component {
                         ...this.state.newsList,
                         ...news
                     ]
-                });
-
-                console.log("this.state.newsList", this.state.newsList);
+                }); 
             })
             .catch((error) => console.log("Hata:" + error));
 
@@ -47,9 +42,7 @@ export default class Home extends Component {
                         ...this.state.newsList,
                         ...news
                     ]
-                });
-
-                console.log("this.state.newsList", this.state.newsList);
+                }); 
             })
             .catch((error) => console.log("Hata:" + error));
     }
@@ -64,8 +57,7 @@ export default class Home extends Component {
         const list3 = (this.state.newsList || []).slice(14); 
  
         return (
-            <div>
-                <Header/> 
+            <Fragment>
                 <div className="section">
                     <div className="container">
                         <NewsListTemplate1 News={list1} />
@@ -74,7 +66,7 @@ export default class Home extends Component {
                 </div> 
 
                 <NewsList News={list3} /> 
-            </div>
+            </Fragment>
         );
     }
 }
