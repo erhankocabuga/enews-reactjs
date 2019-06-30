@@ -15,11 +15,12 @@ class Footer extends Component {
         this.newsletterInputOnChange = this.newsletterInputOnChange.bind(this);  
     }
 
-    newsletterInputOnChange(e) { 
+    newsletterInputOnChange(e) {  
         let inputValue = e.target.value; 
         let errorClass = '';
 
         let validationResult = Utils.validateEmail(inputValue);
+        console.log("validationResult", validationResult);
         if(!validationResult) {
             errorClass = 'error';
         }
@@ -38,6 +39,9 @@ class Footer extends Component {
             setTimeout(() => {
                 this.setState({  isSubmitting : false, subscriptionIsComplete: true });
             }, 1500);
+        }
+        else {
+            this.setState({  newsletterValidationClass: 'error' }); 
         }
     }
 
@@ -111,7 +115,7 @@ class Footer extends Component {
                                         !this.state.subscriptionIsComplete ?
                                         (
                                             <Fragment>
-                                                <input className={ 'input ' + this.state.newsletterValidationClass } type="email"   onChange={  this.newsletterInputOnChange } name="newsletter" placeholder="Enter your email" />
+                                                <input className={ 'input ' + this.state.newsletterValidationClass } type="email"  onChange={  this.newsletterInputOnChange } name="newsletter" placeholder="Enter your email" />
                                                 <button className="newsletter-btn" onClick={ (e)=> this.subscribeToNewsletter(e) }>
                                                     <i className={this.state.isSubmitting ? 'fa fa-spinner fa-pulse' : 'fa fa-paper-plane'}></i>
                                                 </button>
