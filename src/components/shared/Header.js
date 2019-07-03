@@ -20,7 +20,7 @@ const Header = () =>  {
                             navbarCategories.map((item, ix) => {
                                 return (
                                     <li key={ix} className={ Utils.getSectionClassName(item.id) }>
-                                        <a href={ item.Url }>{ item.Name }</a>
+                                        <a href={ '.' + item.Url }>{ item.Name }</a>
                                     </li> 
                                 );
                             })

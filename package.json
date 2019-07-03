@@ -2,16 +2,22 @@
   "name": "enews-reactjs",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://erhankocabuga.github.io/enews-reactjs/",
   "dependencies": {
+    "case-sensitive-paths-webpack-plugin": "^2.2.0",
+    "gh-pages": "^2.0.1",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
-    "react-scripts": "0.9.5"
+    "react-router-dom": "^5.0.1",
+    "react-scripts": "^0.9.5"
   },
   "devDependencies": {},
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   }
 }

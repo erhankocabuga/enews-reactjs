@@ -95,7 +95,7 @@ class Footer extends Component {
                                         categories.map((item, ix) => {
                                             return (
                                                 <li key={ix}>
-                                                    <a href={ item.Url }>{item.Name}</a>
+                                                    <a href={ '.' + item.Url }>{item.Name}</a>
                                                 </li> 
                                             );
                                         })

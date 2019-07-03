@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-
-//import './App.css';
  
 import Home from './Pages/Home';
 import Category from './Pages/Category';
@@ -9,17 +7,9 @@ import Detail from './Pages/Detail';
 import Error from './Pages/Error';
 
 import Header from './components/shared/Header';
-import Footer from './components/shared/Footer';
-
-
-
-class App extends Component { 
-  //  constructor(props) {
-  //   super(props); 
-  // }; 
+import Footer from './components/shared/Footer'; 
  
-
- 
+class App extends Component {   
   render() {
     return (
       <div> 
@@ -33,11 +23,10 @@ class App extends Component {
             <Route component={Error}/>
           </Switch>
           <Footer/>   
-        </Router>
-     
+        </Router> 
       </div>
     );
-  }c
+  } 
 }
 
 export default App;

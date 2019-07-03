@@ -27,7 +27,7 @@ class Sidebar extends Component {
                             categories.map((item, ix) => {
                                 return (
                                     <li key={ix}>
-                                        <a href={ item.Url } className={ Utils.getSectionClassName(item.id) }>{item.Name} <span><i className="fa fa-long-arrow-right" aria-hidden="true"></i></span></a>
+                                        <a href={ '.' + item.Url } className={ Utils.getSectionClassName(item.id) }>{item.Name} <span><i className="fa fa-long-arrow-right" aria-hidden="true"></i></span></a>
                                     </li> 
                                 );
                             })

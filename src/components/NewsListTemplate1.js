@@ -14,16 +14,16 @@ class NewsListTemplate1 extends Component {
                         return (
                             <div className="col-md-6" key={ix}>
                                 <div className="post post-thumb">
-                                    <a className="post-img" href={item.Url}><img src={item.Thumbnail} alt={item.Title}/></a>
+                                    <a className="post-img" href={'.' + item.Url}><img src={item.Thumbnail} alt={item.Title}/></a>
                                     <div className="post-body">
                                         <div className="post-meta">
                                             <a
                                                 className={`post-category ${Utils.getSectionClassName(item.SectionId)}`}
-                                                href={'/' + item.SectionId}> {item.Section}</a>
+                                                href={'./' + item.SectionId}> {item.Section}</a>
                                             <span className="post-date">{ Utils.formatDate(item.CreatedDate) }</span>
                                         </div>
                                         <h3 className="post-title">
-                                            <a href={item.Url}>{item.Title}</a>
+                                            <a href={'.' + item.Url}>{item.Title}</a>
                                         </h3>
                                     </div>
                                 </div>
