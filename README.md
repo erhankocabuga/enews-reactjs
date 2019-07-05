@@ -1,6 +1,6 @@
 # Demo
 
-Uygulamanın önizlemesine https://files.000webhost.com/ adresinden ulaşabilirsiniz.
+Uygulamanın önizlemesine https://enews-reactjs.000webhostapp.com/ adresinden ulaşabilirsiniz.
 
 ## Hakkında
 
