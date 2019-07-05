@@ -1,6 +1,6 @@
 # Demo
 
-Uygulamanın önizlemesine https://enews-reactjs.000webhostapp.com/ adresinden ulaşabilirsiniz.
+Uygulamanın önizlemesine http://enews-reactjs.000webhostapp.com/ adresinden ulaşabilirsiniz.
 
 ## Hakkında
 
